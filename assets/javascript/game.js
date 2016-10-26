@@ -1,6 +1,5 @@
 // A page can't be manipulated safely until the document is "ready." 
-// jQuery detects this state of readiness for you. To do this,
-// a document.ready function is needed.
+// jQuery detects this with a document.ready function 
 
 $( document ).ready(function() {
     console.log( "ready!" );
@@ -13,17 +12,30 @@ var maxNumberComputer = 120;
 
 randomNumberFromRangeComputer(minNumberComputer, maxNumberComputer);
 
-function randomNumberFromRangeComputer(min,max)
+function randomNumberFromRangeComputer(min, max)
 {
     var randomNumberComputer = Math.floor(Math.random()*(max-min+1)+min);
     console.log(randomNumberComputer);
+    document.getElementById('computerGeneratedNumber').innerHTML = randomNumberComputer;
 }
 
 // four crystal button divs(jewelOne, jewelTwo, jewelThree, jewelFour) 
-// each represent a randomly generated number value of the crystal button 
-// that is generated at the start of the game-assigned a number between [1-12]
+// each represent a random value b/w 1-12, but the value is not displayed
+// which is reset to a new random value at the start of the game, but stays
+ // the same during the game
 
-// each time one of a jewelbutton is clicked, the value assigned 
+var minNumberJewel = 1;
+var maxNumberJewel = 12;
+
+randomNumberFromRangejewelOne(minNumberJewel, maxNumberJewel);
+
+function randomNumberFromRangejewelOne(min, max) {
+	var randomNumberJewelOne = Math.floor(Math.random()*(max-min+1)+min);
+    console.log(randomNumberJewelOne);
+    document.getElementById('totalScore').innerHTML = randomNumberJewelOne;
+}
+
+// each time one of the jewelbutton is clicked, the value assigned 
 // to that jewel is added to the total contained in the totalScore div. Every click
 // adds more points. 
 

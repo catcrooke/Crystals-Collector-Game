@@ -6,3 +6,12 @@ h1 {
 #gameInstructions {
 	background-color: yellow;
 }
+
+/*set the size of the buttons (or attempt to set their size)*/
+#jewelOne, 
+#jewelTwo, 
+#jewelThree, 
+#JewelFour {
+	height: 100px;
+	width: 100px;
+}
