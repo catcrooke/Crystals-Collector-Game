@@ -2,12 +2,64 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="assets/css.style.css">
+
+	<!-- link to reset css -->
 	<link rel="stylesheet" href="assets/css.reset.css">
-	<title>Document</title>
+	<!-- link to bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- link to local style sheet -->
+	<link rel="stylesheet" href="assets/css.style.css">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>CrystalCollection</title>
 </head>
 <body>
 
-<script type="text/javascript" src='javascript/game.js'></script>
+<!-- divs needed: header, instructions, container for randomly generated number, container for (message (win/loss), # wins, # losses); container for 4 jewel buttons, container for total score, container for addNumber  -->
+
+<!-- header div-->
+<h1>Crystals Collector!</h1>
+
+<!-- gameInstructions div -->
+<div id='gameInstructions' class='container'>
+	<p>You will be given a random number at the start of the game. </p>
+	<p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
+	<p>You win the game by matching your total score to the random number, you lose the game if your total score goes above the random number.</p>
+	<p>The value of each crystal is hidden from you until you click on it.</p>
+	<p>Each time when the game starts, the game will change the values of each crystal.</p>
+</div>
+
+<!--  computerGeneratedNumber div -->
+<div id='computerGeneratedNumber' class='container'>
+
+</div>
+
+<!--div scoreBoard -->
+<div id='scoreBoard' class='container'>
+	<div id='message'></div>
+	<div id='numWins'></div>
+	<div id='numLosses'></div>
+</div>
+
+<!-- div jewelContainer -->
+<div id='jewelContainer' class='container'>
+	<div id='jewelOne' class='button'></div>
+	<div id='jewelTwo' class='button'></div>
+	<div id='jewelThree' class='button'></div>
+	<div id='jewelFour' class='button'></div>
+</div>
+
+<!-- div that contains overall Score -->
+<div id='totalScore' class='container'>
+	
+</div>
+
+<!-- div that holds the increased number  -->
+<div id='AddedNumber' class='container'>
+	
+</div>
+
+<script type='text/javascript' src='javascript/game.js'></script>
 </body>
 </html>
