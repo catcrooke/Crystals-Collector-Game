@@ -1,17 +1,13 @@
-// A page can't be manipulated safely until the document is "ready." 
-// jQuery detects this with a document.ready function 
 
-$( document ).ready(function() {
-    console.log( "ready!" );
 
 // at the start of the game, there's a randomly generated number that
 // appears in the computerGeneratedNumber div- it will be a number between 19-120
 
+// variables for the computer generated number
 var minNumberComputer = 19;
 var maxNumberComputer = 120;
 
-randomNumberFromRangeComputer(minNumberComputer, maxNumberComputer);
-
+// function to produce the random computer number
 function randomNumberFromRangeComputer(min, max)
 {
     var randomNumberComputer = Math.floor(Math.random()*(max-min+1)+min);
@@ -19,25 +15,38 @@ function randomNumberFromRangeComputer(min, max)
     document.getElementById('computerGeneratedNumber').innerHTML = randomNumberComputer;
 }
 
+// calling that function 
+randomNumberFromRangeComputer(minNumberComputer, maxNumberComputer);
+
 // four crystal button divs(jewelOne, jewelTwo, jewelThree, jewelFour) 
 // each represent a random value b/w 1-12, but the value is not displayed
 // which is reset to a new random value at the start of the game, but stays
  // the same during the game
 
+// setting the variables for the first jewel value
 var minNumberJewel = 1;
 var maxNumberJewel = 12;
 
-randomNumberFromRangejewelOne(minNumberJewel, maxNumberJewel);
-
-function randomNumberFromRangejewelOne(min, max) {
-	var randomNumberJewelOne = Math.floor(Math.random()*(max-min+1)+min);
-    console.log(randomNumberJewelOne);
-    document.getElementById('totalScore').innerHTML = randomNumberJewelOne;
+// function to create the random number to be used throughout game
+function randomNumberFromRangejewel(min, max) {
+	var randomNumber = Math.floor(Math.random()*(max-min+1)+min);
+	return randomNumber;
+  
 }
 
-// each time one of the jewelbutton is clicked, the value assigned 
+// calling that random number jewel function
+
+var jewelOne = randomNumberFromRangejewel(minNumberJewel, maxNumberJewel);
+var jewelTwo = randomNumberFromRangejewel(minNumberJewel, maxNumberJewel);
+var jewelThree = randomNumberFromRangejewel(minNumberJewel, maxNumberJewel);
+var jewelFour = randomNumberFromRangejewel(minNumberJewel, maxNumberJewel);
+
+// each time a jewelbutton is clicked, the value assigned 
 // to that jewel is added to the total contained in the totalScore div. Every click
 // adds more points. 
+function addToTotalScore() {
+
+}
 
 //  Win occurs when totalScore = computerGeneratedNumber. 
 // If there is a win, the 'message' div updates to read "You win!" and 
@@ -49,7 +58,26 @@ function randomNumberFromRangejewelOne(min, max) {
 
 // game resets. computerGeneratedNumber is randomly assigned a new number, and each
 // jewel has a new value, and totalScore 
+ 
 
+$( document ).ready(function() {
+    console.log( "ready!" );
+
+    $("#jewelOne").on("click", function (){
+    	console.log("jewelOneclicked");
+    });
+
+    $("#jewelTwo").on("click", function (){
+    console.log("jewelTwoClicked");
+	});
+
+    $("#jewelThree").on("click", function (){
+    console.log("jewelThreeClicked");
+	});
+
+   $("#jewelFour").on("click", function (){
+    console.log("jewelFourClicked");
+	});
 
 });
 

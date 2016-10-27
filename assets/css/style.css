@@ -7,11 +7,20 @@ h1 {
 	background-color: yellow;
 }
 
+.jewel {
+	float: left;
+	display: block;
+}
+
 /*set the size of the buttons (or attempt to set their size)*/
 #jewelOne, 
-#jewelTwo, 
+#jewelTwo,
 #jewelThree, 
-#JewelFour {
+#jewelFour {
 	height: 100px;
 	width: 100px;
+}
+
+button img {
+	width: 100%;
 }
