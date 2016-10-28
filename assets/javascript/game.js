@@ -78,19 +78,19 @@ $( document ).ready(function() {
     });
 
     $("#jewelTwo").on("click", function (){
-    	console.log("jewelTwoclicked")
+    	console.log("jewelTwoclicked");
     	$('#totalScore').append(jewelTwo);
 		console.log(this.value);
 	});
 
     $("#jewelThree").on("click", function (){
-    	console.log("jewelThreeclicked")
+    	console.log("jewelThreeclicked");
     	$('#totalScore').append(jewelThree);
 		console.log(this.value);
 	});
 
    $("#jewelFour").on("click", function (){
-   		console.log("jewelFourclicked")
+   		console.log("jewelFourclicked");
    		$('#totalScore').append(jewelFour);
 		console.log(this.value);
 	});
