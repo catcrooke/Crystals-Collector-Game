@@ -47,12 +47,13 @@ console.log(jewelFour);
 // each time a jewelbutton is clicked, the value assigned 
 // to that jewel is added to the total contained in the totalScore div. Every click
 // adds more points. 
+var score = []
+
 function addToTotalScore() {
-	var score= [jewelOne, jewelTwo, jewelThree, jewelFour];
-	console.log(score);
 
 
 }
+addToTotalScore();
 
 //  Win occurs when totalScore = computerGeneratedNumber. 
 // If there is a win, the 'message' div updates to read "You win!" and 
@@ -70,24 +71,28 @@ $( document ).ready(function() {
     console.log( "ready!" );
 
     $("#jewelOne").on("click", function (){
-    	console.log("jewelOne");
-    
-		document.getElementById("totalScore").innerHTML =
-		sumAll(1, 123, 500, 115, 44, 88);
+    	console.log("jewelOneclicked");   
+		$('#totalScore').append(jewelOne);
+		console.log(this.value);
 
     });
 
     $("#jewelTwo").on("click", function (){
-    	console.log("jewelTwoClicked");
-
+    	console.log("jewelTwoclicked")
+    	$('#totalScore').append(jewelTwo);
+		console.log(this.value);
 	});
 
     $("#jewelThree").on("click", function (){
-    	console.log("jewelThreeClicked");
+    	console.log("jewelThreeclicked")
+    	$('#totalScore').append(jewelThree);
+		console.log(this.value);
 	});
 
    $("#jewelFour").on("click", function (){
-    	console.log("jewelFourClicked");
+   		console.log("jewelFourclicked")
+   		$('#totalScore').append(jewelFour);
+		console.log(this.value);
 	});
 
 });
