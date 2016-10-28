@@ -48,9 +48,10 @@ console.log(jewelFour);
 // to that jewel is added to the total contained in the totalScore div. Every click
 // adds more points. 
 function addToTotalScore() {
-	// var score 
-	// return result;
-	// console.log(score);
+	var score= [jewelOne, jewelTwo, jewelThree, jewelFour];
+	console.log(score);
+
+
 }
 
 //  Win occurs when totalScore = computerGeneratedNumber. 
@@ -69,7 +70,10 @@ $( document ).ready(function() {
     console.log( "ready!" );
 
     $("#jewelOne").on("click", function (){
-    	console.log("jewelOneclicked");
+    	console.log("jewelOne");
+    
+		document.getElementById("totalScore").innerHTML =
+		sumAll(1, 123, 500, 115, 44, 88);
 
     });
 
