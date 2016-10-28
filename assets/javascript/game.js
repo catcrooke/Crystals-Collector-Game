@@ -18,8 +18,7 @@ function randomNumberFromRangeComputer(min, max)
 // calling that function 
 randomNumberFromRangeComputer(minNumberComputer, maxNumberComputer);
 
-// four crystal button divs(jewelOne, jewelTwo, jewelThree, jewelFour) 
-// each represent a random value b/w 1-12, but the value is not displayed
+// (jewelOne, jewelTwo, jewelThree, jewelFour) represent a random value b/w 1-12, but the value is not displayed
 // which is reset to a new random value at the start of the game, but stays
  // the same during the game
 
@@ -31,21 +30,27 @@ var maxNumberJewel = 12;
 function randomNumberFromRangejewel(min, max) {
 	var randomNumber = Math.floor(Math.random()*(max-min+1)+min);
 	return randomNumber;
-  
+  	console.log(randomNumber);
 }
 
-// calling that random number jewel function
+// setting variables equal to the randomNumberFromRange
 
 var jewelOne = randomNumberFromRangejewel(minNumberJewel, maxNumberJewel);
+console.log(jewelOne);
 var jewelTwo = randomNumberFromRangejewel(minNumberJewel, maxNumberJewel);
+console.log(jewelTwo);
 var jewelThree = randomNumberFromRangejewel(minNumberJewel, maxNumberJewel);
+console.log(jewelThree);
 var jewelFour = randomNumberFromRangejewel(minNumberJewel, maxNumberJewel);
+console.log(jewelFour);
 
 // each time a jewelbutton is clicked, the value assigned 
 // to that jewel is added to the total contained in the totalScore div. Every click
 // adds more points. 
 function addToTotalScore() {
-
+	// var score 
+	// return result;
+	// console.log(score);
 }
 
 //  Win occurs when totalScore = computerGeneratedNumber. 
@@ -65,18 +70,20 @@ $( document ).ready(function() {
 
     $("#jewelOne").on("click", function (){
     	console.log("jewelOneclicked");
+
     });
 
     $("#jewelTwo").on("click", function (){
-    console.log("jewelTwoClicked");
+    	console.log("jewelTwoClicked");
+
 	});
 
     $("#jewelThree").on("click", function (){
-    console.log("jewelThreeClicked");
+    	console.log("jewelThreeClicked");
 	});
 
    $("#jewelFour").on("click", function (){
-    console.log("jewelFourClicked");
+    	console.log("jewelFourClicked");
 	});
 
 });
