@@ -1,159 +1,156 @@
+// initializes the javascript document
 $( document ).ready(function() {
 
-// at the start of the game, there's a randomly generated number that
-// appears in the computerGeneratedNumber div- it will be a number between 19-120
-
+// set the initial wins and losses equal to zero
 var wins = 0;
 var losses = 0;
-// variables for the computer generated number
+
+// set variables for the computer generated number max and min
 var minNumberComputer = 19;
 var maxNumberComputer = 120;
-// setting the variables for the first jewel value
+
+// setting the jewel value max and min
 var minNumberJewel = 1;
 var maxNumberJewel = 12;
 
-// function to create the random number to be used throughout game
+// function that generates all of the randomized numbers needed for the game
 function randomNumber(min, max) {
 	return Math.floor(Math.random()*(max-min+1)+min);
 }
+
+// declare the primary variables 
 var jewelOne;
 var jewelTwo;
 var jewelThree;
 var jewelFour;
 var targetNumber;
-// totalScore variable will contain the sum of the jewels added together
 var totalScore;
 var $totalScore = $('#totalScore')
 var $message = $('#message');
 var $numLosses = $('#numLosses');
 var $numWins = $('#numWins');
 var $computerGeneratedNumber = $('#computerGeneratedNumber');
-var message = ""
-//  Win occurs when totalScore = computerGeneratedNumber. 
-// If there is a win, the 'message' div updates to read "You win!" and 
-// the 'numWins' div increments up 1
+var message = "Click on a Gem to Begin!"
 
-// function to produce the random computer number
+// function that writes the targetNumber
 function writeTargetNumber() { 
+// updating the contents of the computerGeneratedNumber div
     $computerGeneratedNumber.html(targetNumber);
 }
 
+// writes the win or lose message 
 function writeMessage (){
+// updates the contents of the message div
 	$message.html(message);
 }
-// calling that function 
+
+// writes the total number of losses
 function writeNumLosses (){
+// updates the contents of the losses div
 	$numLosses.html(losses);
 }
 
+// writes the total number of wins
 function writeNumWins() {
+// updates the contents of the wins div
 	$numWins.html(wins);
 }
 
+// writes the totalScore
 function writeTotalScore() {
+// updates the contents of the totalScore div
 	$totalScore.html(totalScore);
 }
 
-// (jewelOne, jewelTwo, jewelThree, jewelFour) represent a random value b/w 1-12, but the value is not displayed
-// which is reset to a new random value at the start of the game, but stays
- // the same during the game
+// this function calls all of those previously defined write functions 
 function write() {
+// calls the write target number function
 	writeTargetNumber();
-	writeMessage ();
-	writeNumLosses ();
+// calls the write message function
+	writeMessage();
+// calls the number of losses function
+	writeNumLosses();
+// calls the number of wins function
 	writeNumWins();
+// calls the total score function
 	writeTotalScore();
 }
 
+// this function takes the total score variable and adds the values associated 
+// with each jewel and at each click checks it to see if the player has
+// won or lost
 function addToTotal(addedScore) {
+// adds the value of the addedScore function 
 	totalScore = totalScore + addedScore;
 	checkWin();
 }
 
+// this function gives behavior to produce based on the relationship of the
+// targetNumber to the totalScore
 function checkWin() {
-	// if totalScore is targetNumber, user wins
+// if totalScore is targetNumber, user wins
 	if (totalScore===targetNumber) {
+// wins increment by 1
 		wins++;
+// changes the message variable to indicate a win
+		message='You Win!';
+// game resets by calling the game reset function
 		reset();
+// if the user loses by scoring greater than the targetNumber
 	} else if (totalScore>targetNumber) {
+// losses increment by 1 
 		losses++;
+// changes the losses variable to indicate a loss
+		message='You Lose!';
+// the game resets
 		reset();
 	} else {
+		message='Keep Clicking Crystals!'
 		write();
-	}
-	// else if totalScore greater than targetNumber, user loses
-
+	}	
 }
-// setting variables equal to the randomNumberFromRange
+
+// this function restarts the game by resetting all of the variables and
+// then writes those variables to the page
 function reset(){
 	jewelOne = randomNumber(minNumberJewel, maxNumberJewel);
 	jewelTwo = randomNumber(minNumberJewel, maxNumberJewel);
 	jewelThree = randomNumber(minNumberJewel, maxNumberJewel);
 	jewelFour = randomNumber(minNumberJewel, maxNumberJewel);
 	targetNumber = randomNumber(minNumberComputer, maxNumberComputer);
-// totalScore variable will contain the sum of the jewels added together
 	totalScore = 0;
 	console.log('resetting game');
 	write();
 }
 
-
-// each time a jewelbutton is clicked, the value assigned 
-// to that jewel is added to the total contained in the totalScore div. Every click
-// adds more points.
-
-
-
-
-
-
-// 	$('#message').html();
-function tallyResults(){
-	if (totalScore<targetNumber) {
-	    $('#message').html("Win or Lose?");
-	} else if (totalScore>targetNumber) {
-		// block of code to be executed if the condition1 is false and condition2 is true
-		losses++;
-		$('#message').html("You Lose!");
-		$('#numLosses').html(losses);
-		console.log('#numLosses');
-	} else {
-	    // block of code to be executed if the condition1 is false and condition2 is false
-	    wins++;
-		$('#message').html('You Win!');
-		$('#numWins').html(wins);
-		console.log('#numWins');
-	}	
-}
-
-
-
-// If totalScore > computerGeneratedNumber, player loses.
-// else, the 'message' div updates to read "You Lose!" 
-// and the numLosses' div increments up 1
-
-// game resets. computerGeneratedNumber is randomly assigned a new number, and each
-// jewel has a new value, and totalScore 
- 
-
-
-
+// onclick event for the jewelOne button div
     $("#jewelOne").on("click", function (){
+// addtoTotal function is called; 
+// adds the jewelOne value to the totalScore 
 		addToTotal(jewelOne);
-
     });
 
+// onclick event for the jewelTwo button div
     $("#jewelTwo").on("click", function (){
+// addtoTotal function is called; 
+// adds the jewelTwo value to the totalScore 
 		addToTotal(jewelTwo);
 	});
 
+// onclick event for the jewelThree button div
     $("#jewelThree").on("click", function (){
+// addtoTotal function is called; 
+// adds the jewelThree value to the totalScore 
 		addToTotal(jewelThree);
 	});
-
+// onclick event for the jewelFour button div
    $("#jewelFour").on("click", function (){
+
+// addtoTotal function is called; 
+// adds the jewelThree value to the totalScore
    		addToTotal(jewelFour);
 	});
+// resets the game
    reset();
 });
 
