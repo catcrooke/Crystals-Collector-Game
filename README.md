@@ -1,6 +1,3 @@
-# week-4-game
-this is week 4's game
-
 Overview
 
 In this assignment,  we created another fun and interactive game for web browsers. This app dynamically updates the HTML pages with the jQuery library.
